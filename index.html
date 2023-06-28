@@ -51,20 +51,7 @@ $dbname = "semabox";
         <p class="zero-resultat">Aucun résultat trouvé</p>
 
     }
-?>
-            </nav>
 
-    if (isset($_GET['uid'])) {
-        $sql2 = "SELECT * FROM box WHERE sema_id = '".$_GET['uid']."'";
-        $result2 = $conn->query($sql2);
-        if ($result2->num_rows > 0) {
-            $rows = $result2->fetch_assoc();
-            $ippublic = $rows['sema_ip_public'];
-            $host = $rows['sema_dns'];
-            $socket = @fsockopen($host, 80, $errorNo, $errorStr, 5);
-            if ($socket) {
-                fclose($socket);
-?>
             <div class="semabox">
                 <div class="haut">
                     <div class="materiel-body-container">
